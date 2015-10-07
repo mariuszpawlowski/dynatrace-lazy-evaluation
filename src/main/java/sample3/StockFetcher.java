@@ -1,4 +1,4 @@
-package sample1;
+package sample3;
 import java.util.*;
 import java.util.stream.Stream;
 

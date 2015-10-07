@@ -1,4 +1,4 @@
-package sample1;
+package sample3;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;

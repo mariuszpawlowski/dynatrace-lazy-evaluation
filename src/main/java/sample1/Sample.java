@@ -1,27 +1,27 @@
 package sample1;
-import java.util.List;
+
+import java.util.function.Supplier;
 
 public class Sample {
-
-	private static int LIMIT = 200;
-
-	public static void eagerEvaluate(List<String> symbols) {
-		List<StockInfo> stocks = StockFetcher.fetchStockPrices(symbols);
-
-		System.out.println(stocks.stream().filter(stock -> stock.price > LIMIT).findFirst());
-	}
-
-	public static void lazyEvaluate(List<String> symbols) {
-		System.out.println(StockFetcher.fetchStockPricesLazy(symbols).filter(stock -> stock.price > LIMIT).findFirst());
+	public static int expensiveComputation(int input) {
+		System.out.println("called expensive computation");
+		return input;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Tickers.symbols);
+		int somevalue = 4;
 
-		System.out.println("Eager evaluation, not efficient");
-		Timeit.code(() -> eagerEvaluate(Tickers.symbols));
+		System.out.println("Short circuit");
+		if (somevalue > 5 && expensiveComputation(5) > 0)
+			System.out.println("");
+		else
+			System.out.println("");
 
-		System.out.println("Lazy evaluation, more efficient");
-		Timeit.code(() -> lazyEvaluate(Tickers.symbols));
+		System.out.println("Lazy with Lambda");
+		Supplier<Integer> temp = () -> expensiveComputation(5);
+		if (somevalue > 5 && temp.get() > 0)
+			System.out.println("");
+		else
+			System.out.println("");
 	}
 }

@@ -1,4 +1,4 @@
-package sample1;
+package sample3;
 public class Timeit {
 	public static void code(Runnable block) {
 		long start = System.nanoTime();

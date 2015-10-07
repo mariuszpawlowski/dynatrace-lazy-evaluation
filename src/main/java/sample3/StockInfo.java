@@ -1,4 +1,4 @@
-package sample1;
+package sample3;
 public class StockInfo {
 	public final String ticker;
 	public final double price;
